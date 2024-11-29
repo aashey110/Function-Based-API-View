@@ -26,7 +26,7 @@ def book_detail(request, pk):
     
     if request.method == 'PUT':
         book = Book.objects.get(pk = pk)
-        serializer = BookSerializer(data = request.data)
+        serializer = BookSerializer(book, data = request.data)
         if serializer.is_valid():
             return Response(serializer.data)
 
